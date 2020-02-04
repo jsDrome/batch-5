@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/jsDrome/batch-5/issues"
   },
-  "homepage": "https://github.com/jsDrome/batch-5#readme"
+  "homepage": "https://github.com/jsDrome/batch-5#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3"
+  }
 }
