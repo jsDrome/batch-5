@@ -6,10 +6,25 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|jpg|jpeg|gif|png)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ],
     "rewrites": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "helloWorld",
+        "function": "helloWorld"
+      },
+      {
+        "source": "temperature",
+        "function": "temperature"
       }
     ]
   }

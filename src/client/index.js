@@ -3,21 +3,21 @@ import { render } from 'react-dom';
 
 class App extends React.Component {
   state = {
-    count: 10,
+    temp: null,
   };
-  increment = () => {
-    const currentValue = this.state.count;
+  fetch = async () => {
+    const responseFromServer = await window.fetch('/temperature');
+    const actualValue = await responseFromServer.text();
 
     this.setState({
-      // eslint-disable-next-line no-magic-numbers
-      count: currentValue + 1,
+      temp: actualValue,
     });
   }
   render() {
     return <div>
-      <h1>{this.state.count}</h1>
-      <button onClick={this.increment}>+</button>
-      <button>-</button>
+      <h1>Current Temperature of Berlin</h1>
+      <button onClick={this.fetch}>Fetch</button>
+      <h2>{this.state.temp && `${this.state.temp} C`}</h2>
     </div>;
   }
 }
