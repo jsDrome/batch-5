@@ -25,6 +25,10 @@
       {
         "source": "temperature",
         "function": "temperature"
+      },
+      {
+        "source": "factorial",
+        "function": "factorial"
       }
     ]
   }

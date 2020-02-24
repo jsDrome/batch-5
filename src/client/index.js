@@ -3,21 +3,24 @@ import { render } from 'react-dom';
 
 class App extends React.Component {
   state = {
-    temp: null,
+    value: 0,
   };
-  fetch = async () => {
-    const responseFromServer = await window.fetch('/temperature');
-    const actualValue = await responseFromServer.text();
-
+  submit = async () => {
+    const currentVal = this.state.value;
+    const factorial = await fetch('/factorial?value=' + currentVal);
     this.setState({
-      temp: actualValue,
+      value: factorial,
+    });
+  }
+  onInputChange = e => {
+    this.setState({
+      value: e.target.value,
     });
   }
   render() {
     return <div>
-      <h1>Current Temperature of Berlin</h1>
-      <button onClick={this.fetch}>Fetch</button>
-      <h2>{this.state.temp && `${this.state.temp} C`}</h2>
+      Number: <input type="text" onChange={this.onInputChange} value={this.state.value}/>
+      <button onClick={this.submit}>Submit</button>
     </div>;
   }
 }
