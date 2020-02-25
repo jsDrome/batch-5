@@ -12,4 +12,5 @@ module.exports = merge(commonConfig, {
       "/factorial": "http://localhost:8000",
     },
   },
+  devtool: 'inline-source-map',
 });

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 8000;
 
 app.get('/factorial', (req, res) => {
   const value = req.query.value;
-  res.send(factorial(+value).toString());
+  res.send(factorial(+value));
 });
 
 const factorial = num => {
