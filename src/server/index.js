@@ -1,7 +1,10 @@
-const functions = require('firebase-functions');
 const express = require('express');
 
 const app = express();
+
+// /factorial?value=10
+
+const PORT = process.env.PORT || 8000;
 
 app.get('/factorial', (req, res) => {
   const value = req.query.value;
@@ -16,4 +19,4 @@ const factorial = num => {
   return num * factorial(num - 1);
 };
 
-exports.factorial = functions.https.onRequest(app);
+app.listen(PORT, () => console.log('SERVER STARTED in port ' + PORT));

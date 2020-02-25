@@ -8,5 +8,8 @@ module.exports = merge(commonConfig, {
     contentBase: path.join(__dirname, '../_dist'),
     compress: true,
     port: 9000,
+    proxy: {
+      "/factorial": "http://localhost:8000",
+    },
   },
 });

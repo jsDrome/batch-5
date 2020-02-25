@@ -4,12 +4,15 @@ import { render } from 'react-dom';
 class App extends React.Component {
   state = {
     value: 0,
+    output: null,
   };
   submit = async () => {
     const currentVal = this.state.value;
     const factorial = await fetch('/factorial?value=' + currentVal);
+    const output = await factorial.text();
+
     this.setState({
-      value: factorial,
+      output,
     });
   }
   onInputChange = e => {
@@ -19,8 +22,9 @@ class App extends React.Component {
   }
   render() {
     return <div>
-      Number: <input type="text" onChange={this.onInputChange} value={this.state.value}/>
+      Number: <input type="text" onChange={this.onInputChange}/>
       <button onClick={this.submit}>Submit</button>
+      <h2>{this.state.output}</h2>
     </div>;
   }
 }
