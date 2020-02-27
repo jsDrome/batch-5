@@ -2,13 +2,13 @@ const express = require('express');
 
 const app = express();
 
-// /factorial?value=10
-
 const PORT = process.env.PORT || 8000;
+
+app.use(express.static('_dist'));
 
 app.get('/factorial', (req, res) => {
   const value = req.query.value;
-  res.send(factorial(+value));
+  res.send(factorial(+value).toString());
 });
 
 const factorial = num => {
