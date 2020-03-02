@@ -9,7 +9,7 @@ module.exports = merge(commonConfig, {
     compress: true,
     port: 9000,
     proxy: {
-      "/factorial": "http://localhost:8000",
+      "/soap": "http://localhost:8000",
     },
   },
   devtool: 'inline-source-map',
